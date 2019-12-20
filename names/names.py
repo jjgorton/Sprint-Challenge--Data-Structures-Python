@@ -15,17 +15,28 @@ f.close()
 duplicates = []
 
 # -------------- My solution is O(n log n)
-bst = BinarySearchTree(names_1[0])
+# bst = BinarySearchTree(names_1[0])
+# for name_1 in names_1:
+#     if name_1 != names_1[0]:
+#         bst.insert(name_1)
+
+# for name_2 in names_2:
+#     if bst.contains(name_2):
+#         duplicates.append(name_2)
+
+
+# -------------- My stretch solution is O(n)
+name_dict = {}
+
 for name_1 in names_1:
-    if name_1 != names_1[0]:
-        bst.insert(name_1)
+    name_dict[name_1] = name_1
 
 for name_2 in names_2:
-    if bst.contains(name_2):
+    if name_2 in name_dict:
         duplicates.append(name_2)
 
 
-# -------------- original solution is O(n^2)
+# -------------- original solution is O(n^2) assuming both lists are equal length
 # for name_1 in names_1:
     # for name_2 in names_2:
     #     if name_1 == name_2:
